@@ -1,0 +1,37 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+:root{
+  --height:50px;
+  --width:50px;
+  --border:1px dashed rgb(88, 30, 30);
+  --bg-color:#c9780f;
+
+
+}
+.divs{
+  height: var(--height);
+  width: var(--width);
+  border: var(--border);
+}
+.hoov{
+  border:4px dashed greenyellow;
+  border-color: #c9780f;
+}
+body{
+  height: 61em;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+}
+.container{
+width: 800px;
+display: grid;
+grid-template-columns:repeat(16, 1fr) ;
+grid-template-rows: repeat(16, 1fr);
+}
+input{
+  display: block;
+}
