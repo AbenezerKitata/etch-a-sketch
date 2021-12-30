@@ -22,16 +22,22 @@
 }
 body{
   height: 61em;
-  display: grid;
-  align-content: center;
-  justify-items: center;
+  /* display: grid; */
+
 }
 .container{
-width: 800px;
+min-width: 50px;
+max-width: 800px;
+min-height: 800px;
 display: grid;
 grid-template-columns:repeat(16, 1fr) ;
 grid-template-rows: repeat(16, 1fr);
+margin: auto;
 }
-input{
-  display: block;
+button{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  height: 20px;
+  margin-left: 50%;
+  
 }

@@ -1,25 +1,63 @@
-let container = document.querySelector('.container')
-let elementsCount = 16;
-let r = Math.floor(Math.random()*255);
-let g = Math.floor(Math.random()*255);
-let b = Math.floor(Math.random()*255);
+let body = document.getElementsByName('body');
+let container = document.querySelector('.container');
+let r = Math.floor(Math.random()*200);
+let g = Math.floor(Math.random()*200);
+let b = Math.floor(Math.random()*200);
 let a = Math.random().toFixed(1);
+let resetButton = document.createElement('button');
 let input = document.createElement('input');
-input.setAttribute("type", "text");
-document.body.insertBefore(input, container);
-let body = document.getElementsByName('body')
-for (let i = 0; i < elementsCount*elementsCount; i++) {
-    const div = document.createElement('div');
-    div.classList.add('divs')
-    container.appendChild(div);
-    div.addEventListener('mouseenter',()=>{
-        div.style.background = `rgba(${r}, ${g}, ${b}, ${a})`;
-        div.style.borderColor = `rgba(${g}, ${b}, ${r}, ${a})`;
-    })
-    
-   
-
+input.setAttribute('type','text' );
+let input2 = document.createElement('input');
+input2.setAttribute('type','text' );
+let btn = document.createElement('button');
+btn.setAttribute("type", "button");
+btn.addEventListener("click",getInputValue)
+function getInputValue(){
+    let inputValue = input.value;
+    row = inputValue;
+    let inputValue2 = input2.value;
+    column = inputValue2;
 }
+
+let row, column;
+row = 16;
+column = 16;
+let inputContainer = document.createElement('div');
+
+
+resetButton.textContent = "-Reset-";
+document.body.insertBefore(resetButton, container);
+document.body.insertBefore(btn, resetButton);
+document.body.insertBefore(input2, btn);
+document.body.insertBefore(input, input2);
+function columnsAndRows(num, num2){
+    
+    for (let i = 0; i < num*num2; i++) {
+        const div = document.createElement('div');
+        div.classList.add('divs')
+        container.style.gridTemplateColumns = `repeat(${row}, 1fr)`;
+        container.style.gridRowColumns = `repeat(${column}, 1fr)`;
+        div.addEventListener('mouseenter',()=>{
+            div.style.background = `rgba(${r}, ${g}, ${b}, ${a})`;
+            div.style.borderColor = `rgba(${g}, ${b}, ${r}, ${a})`;
+        }) 
+        div.addEventListener('mousedown',()=>{
+            div.style.background = `white`;
+            div.style.borderColor = `var(--border)`;
+        })
+        container.appendChild(div);
+        resetButton.addEventListener('click',refreshPage );
+        function refreshPage(){
+            div.style.background = `white`;
+            div.style.borderColor = `var(--border)`;
+           
+        }
+    }
+}
+let rowsAndColumns = columnsAndRows(row, column);
+
+
+
 
 
 
