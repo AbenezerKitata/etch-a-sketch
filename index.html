@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="shortcut icon" href="#">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +9,20 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container"></div>
+  <div id="inputarea">
+    <form action="">
+      <label for="row">Row:</label>
+      <input placeholder="Enter a Row size" type="number" max="100" min="1" id="row" name="row"><br><br>
+      <label for="column">Column:</label>
+      <input placeholder="Enter a Column size" type="number" max="100" min="1" id="column" name="column"><br><br>
+      <input id="submitButton" type="submit" value="Submit">
+    </form> 
+  </div>
+  <div id="game">
+    <button class="refreshButton">-Reset-</button>
+    <div class="container"></div>
+</div>
+ 
   <script src="app.js" defer></script>  
 </body>
 </html>

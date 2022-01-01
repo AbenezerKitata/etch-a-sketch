@@ -6,16 +6,15 @@
 :root{
   --height:50px;
   --width:50px;
-  --border:1px dashed rgb(88, 30, 30);
+  --border:2px solid rgb(88, 30, 30);
   --bg-color:#c9780f;
-
-
+  background-color: #aca8a8;
 }
-.divs{
-  height: var(--height);
-  width: var(--width);
-  border: var(--border);
+#submitButton{
+  background-color: #5a4e4e; 
+  color: rgb(202, 195, 195);
 }
+
 .hoov{
   border:4px dashed greenyellow;
   border-color: #c9780f;
@@ -26,18 +25,20 @@ body{
 
 }
 .container{
-min-width: 50px;
+min-width: 10px;
 max-width: 800px;
 min-height: 800px;
 display: grid;
-grid-template-columns:repeat(16, 1fr) ;
-grid-template-rows: repeat(16, 1fr);
+/* grid-template-columns:repeat(16, 1fr) ; */
+/* grid-template-rows: repeat(16, 1fr); */
 margin: auto;
 }
 button{
-  margin-top: 20px;
+  margin-top: 10px;
   margin-bottom: 20px;
   height: 20px;
   margin-left: 50%;
   
 }
+
+

@@ -1,54 +1,42 @@
-let body = document.getElementsByName('body');
-let container = document.querySelector('.container');
+const body = document.getElementsByName('body');
+const container = document.querySelector('.container');
+const rowInputval = document.querySelector('#row');
+const columnInputval = document.querySelector('#column');
 let r = Math.floor(Math.random()*200);
 let g = Math.floor(Math.random()*200);
 let b = Math.floor(Math.random()*200);
 let a = Math.random().toFixed(1);
-let resetButton = document.createElement('button');
-let input = document.createElement('input');
-input.setAttribute('type','text' );
-let input2 = document.createElement('input');
-input2.setAttribute('type','text' );
-let btn = document.createElement('button');
-btn.setAttribute("type", "button");
-btn.addEventListener("click",getInputValue)
-function getInputValue(){
-    let inputValue = input.value;
-    row = inputValue;
-    let inputValue2 = input2.value;
-    column = inputValue2;
-}
-
+const refreshButton = document.querySelector('.refreshButton');
+const submitButton = document.querySelector('#submitButton');
+submitButton.addEventListener('click', setUserInput())
 let row, column;
 row = 16;
 column = 16;
-let inputContainer = document.createElement('div');
 
 
-resetButton.textContent = "-Reset-";
-document.body.insertBefore(resetButton, container);
-document.body.insertBefore(btn, resetButton);
-document.body.insertBefore(input2, btn);
-document.body.insertBefore(input, input2);
+
 function columnsAndRows(num, num2){
     
     for (let i = 0; i < num*num2; i++) {
         const div = document.createElement('div');
-        div.classList.add('divs')
-        container.style.gridTemplateColumns = `repeat(${row}, 1fr)`;
-        container.style.gridRowColumns = `repeat(${column}, 1fr)`;
+        div.style.width = "var(--width)"
+        div.style.height = "var(--height)"
+        div.style.border = "var(--border)"
+
+        container.style.gridTemplateColumns = `repeat(${column}, 1fr)`;
+        container.style.gridRowColumns = `repeat(${row}, 1fr)`;
         div.addEventListener('mouseenter',()=>{
             div.style.background = `rgba(${r}, ${g}, ${b}, ${a})`;
             div.style.borderColor = `rgba(${g}, ${b}, ${r}, ${a})`;
         }) 
         div.addEventListener('mousedown',()=>{
-            div.style.background = `white`;
+            div.style.background = `#aca8a8`;
             div.style.borderColor = `var(--border)`;
         })
         container.appendChild(div);
-        resetButton.addEventListener('click',refreshPage );
+        refreshButton.addEventListener('click',refreshPage );
         function refreshPage(){
-            div.style.background = `white`;
+            div.style.background = `#aca8a8`;
             div.style.borderColor = `var(--border)`;
            
         }
