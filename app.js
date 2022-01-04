@@ -2,26 +2,48 @@ const body = document.getElementsByName('body');
 const container = document.querySelector('.container');
 const rowInputval = document.querySelector('#row').value;
 const columnInputval = document.querySelector('#column').value;
-let r = Math.floor(Math.random()*200);
-let g = Math.floor(Math.random()*200);
-let b = Math.floor(Math.random()*200);
+let r = Math.floor(Math.random()*160);
+let g = Math.floor(Math.random()*160);
+let b = Math.floor(Math.random()*160);
 let a = Math.random().toFixed(1);
 const refreshButton = document.querySelector('.refreshButton');
-const submitButton = document.querySelector('#submitButton');
-submitButton.addEventListener('click', setUserInput())
 let row, column;
-row = 16;
-column = 16;
+function columnsAndRows(){
+    const rowButton = document.querySelector('#rowButton');
+    rowButton.addEventListener('click', setRowInput,);
+    const colButton = document.querySelector('#colButton');
+    colButton.addEventListener('click', setColInput)
+    row = 16;
+    column = 16;
+    function setRowInput (e){
+        let userRow = 
+        row = document.getElementById('row').value;
+        console.log(row);
+     
 
+        e.preventDefault();
+    }
+    function setColInput (e){
+        // let userRow = 
+        column = document.getElementById('column').value;
+       
+        console.log(column)
 
+        e.preventDefault();
+    }
+    let submitButton = document.getElementById('submitButton');
+    submitButton.addEventListener('click',myFunc);
+    function myFunc (e){
+        
 
-function columnsAndRows(num, num2){
+    }
+
     
-    for (let i = 0; i < num*num2; i++) {
+    for (let i = 0; i < row*column; i++) {
         const div = document.createElement('div');
-        div.style.width = "var(--width)"
-        div.style.height = "var(--height)"
-        div.style.border = "var(--border)"
+        div.style.width = "var(--width)";
+        div.style.height = "var(--height)";
+        div.style.border = "var(--border)";
 
         container.style.gridTemplateColumns = `repeat(${column}, 1fr)`;
         container.style.gridRowColumns = `repeat(${row}, 1fr)`;
@@ -42,7 +64,7 @@ function columnsAndRows(num, num2){
         }
     }
 }
-let rowsAndColumns = columnsAndRows(row, column);
+columnsAndRows();
 
 
 

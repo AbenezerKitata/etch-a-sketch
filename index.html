@@ -10,11 +10,19 @@
 </head>
 <body>
   <div id="inputarea">
-    <form action="">
-      <label for="row">Row:</label>
-      <input placeholder="Enter a Row size" type="number" max="100" min="1" id="row" name="row"><br><br>
-      <label for="column">Column:</label>
-      <input placeholder="Enter a Column size" type="number" max="100" min="1" id="column" name="column"><br><br>
+    <form action=""> 
+      <div id="row-div">
+        <label for="row">Row:</label>
+        <input placeholder="Enter a Row size" type="number" max="100" min="1" id="row" name="row">
+        <input id="rowButton" type="submit" value="Submit">
+      </div>
+      <br>
+       <div id="column-div">
+        <label for="column">Column:</label>
+        <input placeholder="Enter a Column size" type="number" max="100" min="1" id="column" name="column">
+        <input id="colButton" type="submit" value="Submit">
+       </div>
+      <br><br>
       <input id="submitButton" type="submit" value="Submit">
     </form> 
   </div>
