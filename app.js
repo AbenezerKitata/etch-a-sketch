@@ -10,31 +10,17 @@ const refreshButton = document.querySelector('.refreshButton');
 let row, column;
 function columnsAndRows(){
     const rowButton = document.querySelector('#rowButton');
-    rowButton.addEventListener('click', setRowInput,);
     const colButton = document.querySelector('#colButton');
-    colButton.addEventListener('click', setColInput)
     row = 16;
     column = 16;
-    function setRowInput (e){
-        let userRow = 
-        row = document.getElementById('row').value;
-        console.log(row);
-     
-
-        e.preventDefault();
-    }
-    function setColInput (e){
-        // let userRow = 
-        column = document.getElementById('column').value;
-       
-        console.log(column)
-
-        e.preventDefault();
-    }
+    let userCol = document.getElementById('column').value;
+    let userRow = document.getElementById('row').value;
     let submitButton = document.getElementById('submitButton');
     submitButton.addEventListener('click',myFunc);
     function myFunc (e){
-        
+        row = userRow;
+        column = userCol;
+
 
     }
 
