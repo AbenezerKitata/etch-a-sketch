@@ -1,38 +1,25 @@
 const body = document.getElementsByName('body');
 const container = document.querySelector('.container');
-const rowInputval = document.querySelector('#row').value;
-const columnInputval = document.querySelector('#column').value;
+
 let r = Math.floor(Math.random()*180);
 let g = Math.floor(Math.random()*180);
 let b = Math.floor(Math.random()*180);
 let a = Math.random().toFixed(1);
 const refreshButton = document.querySelector('.refreshButton');
-let row, column;
-function columnsAndRows(){
-    const rowButton = document.querySelector('#rowButton');
-    const colButton = document.querySelector('#colButton');
-    row = 16;
-    column = 16;
-    let userCol = document.getElementById('column').value;
-    let userRow = document.getElementById('row').value;
-    let submitButton = document.getElementById('submitButton');
-    submitButton.addEventListener('click',myFunc);
-    function myFunc (e){
-        row = userRow;
-        column = userCol;
+let rowXcol = 16;
 
 
-    }
-
+function columnsAndRows(n){
+   
     
-    for (let i = 0; i < row*column; i++) {
+    for (let i = 0; i < n*n; i++) {
         const div = document.createElement('div');
         div.style.width = "var(--width)";
         div.style.height = "var(--height)";
         div.style.border = "var(--border)";
 
-        container.style.gridTemplateColumns = `repeat(${column}, 1fr)`;
-        container.style.gridRowColumns = `repeat(${row}, 1fr)`;
+        container.style.gridTemplateColumns = `repeat(${n}, 1fr)`;
+        container.style.gridRowColumns = `repeat(${n}, 1fr)`;
         div.addEventListener('mouseenter',()=>{
             div.style.background = `rgba(${r}, ${g}, ${b}, ${a})`;
             div.style.borderColor = `rgba(${g}, ${b}, ${r}, ${a})`;
@@ -46,11 +33,18 @@ function columnsAndRows(){
         function refreshPage(){
             div.style.background = `#aca8a8`;
             div.style.borderColor = `var(--border)`;
+            let getval = prompt("please enter olumnsXRows", 16);
+            if (getval > 100){
+                alert(' please enter less than 100')
+                
+            }
+            columnsAndRows(getval);
+            
            
         }
     }
 }
-columnsAndRows();
+columnsAndRows(rowXcol);
 
 
 
