@@ -6,20 +6,18 @@ let g = Math.floor(Math.random()*180);
 let b = Math.floor(Math.random()*180);
 let a = Math.random().toFixed(1);
 const refreshButton = document.querySelector('.refreshButton');
-let rowXcol = 16;
+let rowXcol = 50;
 
 
 function columnsAndRows(n){
-   
-    
     for (let i = 0; i < n*n; i++) {
         const div = document.createElement('div');
-        div.style.width = "var(--width)";
-        div.style.height = "var(--height)";
+        container.appendChild(div);
+        div.style.width = `${850/n}px`;
+        div.style.height = `${850/n}px`;
         div.style.border = "var(--border)";
-
         container.style.gridTemplateColumns = `repeat(${n}, 1fr)`;
-        container.style.gridRowColumns = `repeat(${n}, 1fr)`;
+        // container.style.gridTemplateRows = `repeat(${n}, 1fr)`;
         div.addEventListener('mouseenter',()=>{
             div.style.background = `rgba(${r}, ${g}, ${b}, ${a})`;
             div.style.borderColor = `rgba(${g}, ${b}, ${r}, ${a})`;
@@ -28,23 +26,30 @@ function columnsAndRows(n){
             div.style.background = `#aca8a8`;
             div.style.borderColor = `var(--border)`;
         })
-        container.appendChild(div);
-        refreshButton.addEventListener('click',refreshPage );
-        function refreshPage(){
-            div.style.background = `#aca8a8`;
-            div.style.borderColor = `var(--border)`;
-            let getval = prompt("please enter olumnsXRows", 16);
-            if (getval > 100){
-                alert(' please enter less than 100')
-                
-            }
-            columnsAndRows(getval);
-            
-           
-        }
-    }
+        
+     }
 }
 columnsAndRows(rowXcol);
+
+function refreshPage(){
+let userInput =parseInt(prompt('Please enter Row X Column Size'));
+switch (userInput) {
+    case isNaN(userInput):
+        alert("please enter a valid number");
+        window.location.reload();
+        break;
+        
+        case (userInput > 100):
+            alert("please enter a smaller number");
+            window.location.reload();
+            break;
+    default :alert('please enter a value')
+        break;
+}
+
+columnsAndRows(userInput);
+}
+refreshButton.addEventListener('click', refreshPage)
 
 
 
