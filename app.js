@@ -6,7 +6,7 @@ let g = Math.floor(Math.random()*180);
 let b = Math.floor(Math.random()*180);
 let a = Math.random().toFixed(1);
 const refreshButton = document.querySelector('.refreshButton');
-let rowXcol = 50;
+let rowXcol = 16;
 
 
 function columnsAndRows(n){
